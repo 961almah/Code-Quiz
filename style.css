@@ -4,3 +4,42 @@
   /* browser default font is 16px, 62.5% of 16 is 10px, will make changes relative to rem */
   font-size: 62.5%;
 }
+
+* {
+  /* adding border box adds width to the calculated border of size*/
+  box-sizing: border-box;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  /* set margin and padding to 0 to control setting to the fullest */
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin-bottom: 1rem;
+}
+
+h1 {
+  /* title is gonna be 5.5x the the fonxt size relative to the rem*/
+  font-size: 5.5rem;
+  color: #56a5eb;
+  margin-bottom: 5rem;
+}
+
+h1 > span {
+  font-size: 2.4rem;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 4.2rem;
+  margin-bottom: 4rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 2.8rem;
+  font-weight: 500;
+}
