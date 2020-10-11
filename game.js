@@ -18,44 +18,44 @@ let questionCounter = 0;
 // create array with objects inside to take questions out of it and add them into questions
 let questions = [
     {
-        question: "dsdgsdf",
-        choice1: "dsf",
-        choice2: "asf",
-        choice3: "3eqwd",
-        choice4: "fksaj",
+        question: "Which of the following is a front-end language?",
+        choice1: "Ruby",
+        choice2: "CSS",
+        choice3: "C++",
+        choice4: "Python",
+        answer: 2
+    },
+    {
+        question: "Inside which HTML element do we put the JavaScript?",
+        choice1: "style",
+        choice2: "scripting",
+        choice3: "script",
+        choice4: "javascript",
+        answer: 3
+    },
+    {
+        question: "What does HTML stand for?",
+        choice1: "Hyper Trainer Marking Language",
+        choice2: "Hyper Text Marketing Language",
+        choice3: "Hyper Text Markup Language",
+        choice4: "Hyper Text Markdown Language",
+        answer: 3
+    },
+    {
+        question: "How to call a class of 'container' in CSS?",
+        choice1: ".container",
+        choice2: "class:container",
+        choice3: "ClassContainer",
+        choice4: "#container",
         answer: 1
     },
     {
-        question: "dsdfsf",
-        choice1: "dsf",
-        choice2: "asf",
-        choice3: "3eqwd",
-        choice4: "fksaj",
-        answer: 1
-    },
-    {
-        question: "ddsfnf",
-        choice1: "dsf",
-        choice2: "asf",
-        choice3: "3eqwd",
-        choice4: "fksaj",
-        answer: 1
-    },
-    {
-        question: "ds2effnf",
-        choice1: "dsf",
-        choice2: "asf",
-        choice3: "3eqwd",
-        choice4: "fksaj",
-        answer: 1
-    },
-    {
-        question: "dsj567f",
-        choice1: "dsf",
-        choice2: "asf",
-        choice3: "3eqwd",
-        choice4: "fksaj",
-        answer: 1
+        question: "Which language is used to animate elements?",
+        choice1: "HTML",
+        choice2: ".NET",
+        choice3: "CSS",
+        choice4: "JavaScipt",
+        answer: 4
     },
 ];
 
@@ -108,7 +108,7 @@ getNewQuestion = () => {
 
 choices.forEach((choice) => {
     // add event listener 
-    choice.addEventListener('click', (e) => {
+    choice.addEventListener('click', e => {
         // if not taking answers, return nothing
         if (!acceptingAnswers) return;
 
@@ -118,8 +118,19 @@ choices.forEach((choice) => {
         const selectedChoice = e.target;
         const selectedAnswer = selectedChoice.dataset['number'];
 
-        // after you select your answer, get a new question
-        getNewQuestion();
+        // make class to display correct and incorrect answers
+        const classToApply =
+        selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
+
+        // add class to choice container to select all of it when displaying correctness
+        selectedChoice.parentElement.classList.add(classToApply)
+
+        // then remove it after some time passing
+        setTimeout(() => {
+            selectedChoice.parentElement.classList.remove(classToApply);
+            // after you select your answer, get a new question
+            getNewQuestion();
+        }, 1000);
     });
 });
 
