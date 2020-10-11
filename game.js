@@ -24,5 +24,69 @@ let questions = [
         choice3: "3eqwd",
         choice4: "fksaj",
         answer: 1
-    }
+    },
+    {
+        question: "dsjknf",
+        choice1: "dsf",
+        choice2: "asf",
+        choice3: "3eqwd",
+        choice4: "fksaj",
+        answer: 1
+    },
+    {
+        question: "dsjknf",
+        choice1: "dsf",
+        choice2: "asf",
+        choice3: "3eqwd",
+        choice4: "fksaj",
+        answer: 1
+    },
+    {
+        question: "dsjknf",
+        choice1: "dsf",
+        choice2: "asf",
+        choice3: "3eqwd",
+        choice4: "fksaj",
+        answer: 1
+    },
+    {
+        question: "dsjknf",
+        choice1: "dsf",
+        choice2: "asf",
+        choice3: "3eqwd",
+        choice4: "fksaj",
+        answer: 1
+    },
+    {
+        question: "dsjknf",
+        choice1: "dsf",
+        choice2: "asf",
+        choice3: "3eqwd",
+        choice4: "fksaj",
+        answer: 1
+    },
+    {
+        question: "dsjknf",
+        choice1: "dsf",
+        choice2: "asf",
+        choice3: "3eqwd",
+        choice4: "fksaj",
+        answer: 1
+    },
 ]
+
+// constants
+
+const CORRECT_BONUS = 10
+const MAX_QUESTIONS = 5
+
+function startGame() {
+    // set question counter and score at 0 at the start of each game
+    questionCounter = 0
+    score = 0
+    // create new array, and add "questions" array into it and spread its items. This way, any change to "questions" will automatically change in availableQuestions
+    availableQuestions = [...questions]
+    console.log(availableQuestions);
+}
+
+startGame()
