@@ -1,0 +1,6 @@
+/* root refers to whole html */
+:root {
+  background-color: aliceblue;
+  /* browser default font is 16px, 62.5% of 16 is 10px, will make changes relative to rem */
+  font-size: 62.5%;
+}
