@@ -6,3 +6,28 @@
   border: 0.1rem solid rgba(86, 185, 235, 0.25);
   background-color: white;
 }
+
+.choice-container:hover {
+  cursor: pointer;
+  /* give box shadow */
+  box-shadow: 0 0.5rem 1.5rem 0 rgba(86, 185, 235, 0.5);
+  /* When hovering, make box slowly move up location */
+  transform: translateY(-0.1rem);
+  transition: transform 150ms;
+}
+
+.choice-container[disabled]:hover {
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.choice-prefix {
+  padding: 1.5rem 2.5rem;
+  background-color: #56a5eb;
+  color: white;
+}
+
+.choice-text {
+  padding: 1.5rem;
+}
