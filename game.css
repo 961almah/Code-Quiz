@@ -30,4 +30,6 @@
 
 .choice-text {
   padding: 1.5rem;
+  /* to make the whole bar clickable and interactive */
+  width: 100%;
 }

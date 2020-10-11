@@ -9,7 +9,7 @@ console.log(choices);
 // create object to add question and answers
 let currentQuestion = {};
 // give delay between answer and next question
-let acceptingAnswers = true;
+let acceptingAnswers = false;
 // create score 
 let score = 0;
 // determine question number
@@ -18,7 +18,7 @@ let questionCounter = 0;
 // create array with objects inside to take questions out of it and add them into questions
 let questions = [
     {
-        question: "dsjknf",
+        question: "dsdgsdf",
         choice1: "dsf",
         choice2: "asf",
         choice3: "3eqwd",
@@ -26,7 +26,7 @@ let questions = [
         answer: 1
     },
     {
-        question: "dsjknf",
+        question: "dsdfsf",
         choice1: "dsf",
         choice2: "asf",
         choice3: "3eqwd",
@@ -34,7 +34,7 @@ let questions = [
         answer: 1
     },
     {
-        question: "dsjknf",
+        question: "ddsfnf",
         choice1: "dsf",
         choice2: "asf",
         choice3: "3eqwd",
@@ -42,7 +42,7 @@ let questions = [
         answer: 1
     },
     {
-        question: "dsjknf",
+        question: "ds2effnf",
         choice1: "dsf",
         choice2: "asf",
         choice3: "3eqwd",
@@ -50,23 +50,7 @@ let questions = [
         answer: 1
     },
     {
-        question: "dsjknf",
-        choice1: "dsf",
-        choice2: "asf",
-        choice3: "3eqwd",
-        choice4: "fksaj",
-        answer: 1
-    },
-    {
-        question: "dsjknf",
-        choice1: "dsf",
-        choice2: "asf",
-        choice3: "3eqwd",
-        choice4: "fksaj",
-        answer: 1
-    },
-    {
-        question: "dsjknf",
+        question: "dsj567f",
         choice1: "dsf",
         choice2: "asf",
         choice3: "3eqwd",
@@ -78,7 +62,7 @@ let questions = [
 // constants
 
 const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 3;
+const MAX_QUESTIONS = 5;
 
 startGame = () => {
     // set question counter and score at 0 at the start of each game
@@ -91,6 +75,12 @@ startGame = () => {
 };
 
 getNewQuestion = () => {
+    // if all questions are used then go to end page
+    if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
+        // go to end page
+        return window.location.assign("/end.html")
+    }
+
     // when game is started, increment questions 
     questionCounter++;
 
@@ -110,5 +100,27 @@ getNewQuestion = () => {
         // out of current question, get choice, and get number out of it
         choice.innerText = currentQuestion['choice' + number];
     });
+    // splice out question so it does not repeat
+    availableQuestions.splice(questionIndex, 1);
+    // allow to accept answers
+    acceptingAnswers = true;
 };
+
+choices.forEach((choice) => {
+    // add event listener 
+    choice.addEventListener('click', (e) => {
+        // if not taking answers, return nothing
+        if (!acceptingAnswers) return;
+
+        acceptingAnswers = false;
+
+        // make the selected choice be the targeted element
+        const selectedChoice = e.target;
+        const selectedAnswer = selectedChoice.dataset['number'];
+
+        // after you select your answer, get a new question
+        getNewQuestion();
+    });
+});
+
 startGame();
