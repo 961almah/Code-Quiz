@@ -104,4 +104,16 @@ h3 {
 }
 
 .btn:hover {
+  cursor: pointer;
+  /* give box shadow */
+  box-shadow: 0 0.5rem 1.5rem 0 rgba(86, 185, 235, 0.5);
+  /* When hovering, make box slowly move up location */
+  transform: translateY(-0.1rem);
+  transition: transform 150ms;
+}
+
+.btn[disabled]:hover {
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
 }
