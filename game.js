@@ -4,6 +4,9 @@ const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
 console.log(choices);
 
+const questionCounterText = document.getElementById("questionCounter")
+const scoreText = document.getElementById("score")
+
 // create variables:
 
 // create object to add question and answers
@@ -83,6 +86,9 @@ getNewQuestion = () => {
 
     // when game is started, increment questions 
     questionCounter++;
+    // add interactive question counter for the hud with the question number/ max questions
+    questionCounterText.innerText = `${questionCounter}/${MAX_QUESTIONS}`
+
 
     // randomize questions and base it on length
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);

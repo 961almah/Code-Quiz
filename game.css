@@ -42,7 +42,7 @@
 }
 
 /* HUD */
-
+/* style hud */
 #hud {
   display: flex;
   justify-content: space-around;
