@@ -93,10 +93,22 @@ startGame = () => {
 getNewQuestion = () => {
     // when game is started, increment questions 
     questionCounter++;
+
     // randomize questions and base it on length
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
+    
     // get the current question from availableQuestions and randomize it
     currentQuestion = availableQuestions[questionIndex];
+
+    // give the html element of question the text of current question
     question.innerHTML = currentQuestion.question;
+    
+    // iterate through the choices in the same manner
+    choices.forEach((choice) => {
+        // get to dataset and get "number" attribute out of it
+        const number = choice.dataset['number'];
+        // out of current question, get choice, and get number out of it
+        choice.innerText = currentQuestion['choice' + number];
+    });
 };
 startGame();
