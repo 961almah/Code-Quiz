@@ -85,7 +85,7 @@ getNewQuestion = () => {
     // if all questions are used then go to end page
     if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
         // go to end page
-        return window.location.assign("/end.html")
+        return window.location.assign("end.html")
     }
 
     // when game is started, increment questions 
