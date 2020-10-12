@@ -4,8 +4,12 @@ const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
 console.log(choices);
 
-const questionCounterText = document.getElementById("questionCounter")
+const progressText = document.getElementById("progressText")
 const scoreText = document.getElementById("score")
+
+const progressBarFull = document.getElementById("progressBarFull")
+
+
 
 // create variables:
 
@@ -87,7 +91,7 @@ getNewQuestion = () => {
     // when game is started, increment questions 
     questionCounter++;
     // add interactive question counter for the hud with the question number/ max questions
-    questionCounterText.innerText = `${questionCounter}/${MAX_QUESTIONS}`
+    progressText.innerText = `Questionss${questionCounter}/${MAX_QUESTIONS}`
 
 
     // randomize questions and base it on length
@@ -128,6 +132,10 @@ choices.forEach((choice) => {
         const classToApply =
         selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
 
+        if(classToApply === 'correct') {
+            incrementScore(CORRECT_BONUS)
+        }
+
         // add class to choice container to select all of it when displaying correctness
         selectedChoice.parentElement.classList.add(classToApply)
 
@@ -139,5 +147,11 @@ choices.forEach((choice) => {
         }, 1000);
     });
 });
+
+// increment score
+incrementScore = num => {
+    score += num
+    scoreText.innerText = score
+}
 
 startGame();
