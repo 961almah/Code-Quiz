@@ -92,6 +92,8 @@ getNewQuestion = () => {
     questionCounter++;
     // add interactive question counter for the hud with the question number/ max questions
     progressText.innerText = `Questionss${questionCounter}/${MAX_QUESTIONS}`
+    // update progress bar to be x/y
+    progressBarFull.style.width = `${(questionCounter)/(MAX_QUESTIONS) * 100}%`
 
 
     // randomize questions and base it on length
