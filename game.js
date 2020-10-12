@@ -84,6 +84,8 @@ startGame = () => {
 getNewQuestion = () => {
     // if all questions are used then go to end page
     if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
+        // save player score, save variable score into that value
+        localStorage.setItem("mostRecentScore", score);
         // go to end page
         return window.location.assign("end.html")
     }
