@@ -16,11 +16,11 @@
   transition: transform 150ms;
 }
 
-.choice-container[disabled]:hover {
+/* .choice-container:hover {
   cursor: not-allowed;
   box-shadow: none;
   transform: none;
-}
+} */
 
 .choice-prefix {
   padding: 1.5rem 2.5rem;
