@@ -17,11 +17,13 @@
 h1,
 h2,
 h3,
-h4 {
+h4,
+#time {
   margin-bottom: 1rem;
 }
 
-h1 {
+h1,
+#time {
   /* title is gonna be 5.5x the the fonxt size relative to the rem*/
   font-size: 5.5rem;
   color: #56a5eb;
