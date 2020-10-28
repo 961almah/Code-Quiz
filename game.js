@@ -9,6 +9,8 @@ const scoreText = document.getElementById("score")
 
 const progressBarFull = document.getElementById("progressBarFull")
 
+const counter = document.getElementById("counter");
+const timeGauge = document.getElementById("timeGauge");
 
 
 // create variables:
@@ -21,6 +23,8 @@ let acceptingAnswers = false;
 let score = 0;
 // determine question number
 let questionCounter = 0;
+
+let time = 60;
 
 // create array with objects inside to take questions out of it and add them into questions
 let questions = [
@@ -66,10 +70,14 @@ let questions = [
     },
 ];
 
+
 // constants
 
 const CORRECT_BONUS = 10;
 const MAX_QUESTIONS = 5;
+const questionTime = 10; // 10s
+const gaugeWidth = 150; // 150px
+const gaugeUnit = gaugeWidth / questionTime;
 
 startGame = () => {
     // set question counter and score at 0 at the start of each game
@@ -79,6 +87,7 @@ startGame = () => {
     availableQuestions = [...questions];
     console.log(availableQuestions);
     getNewQuestion();
+    setInterval(writeTimer,1000);
 };
 
 getNewQuestion = () => {
@@ -93,7 +102,7 @@ getNewQuestion = () => {
     // when game is started, increment questions 
     questionCounter++;
     // add interactive question counter for the hud with the question number/ max questions
-    progressText.innerText = `Questionss${questionCounter}/${MAX_QUESTIONS}`
+    progressText.innerText = `Questions${questionCounter}/${MAX_QUESTIONS}`
     // update progress bar to be x/y
     progressBarFull.style.width = `${(questionCounter)/(MAX_QUESTIONS) * 100}%`
 
@@ -139,6 +148,9 @@ choices.forEach((choice) => {
         if(classToApply === 'correct') {
             incrementScore(CORRECT_BONUS)
         }
+        else if (classToApply === 'incorrect'){
+           time= time-5;
+        }
 
         // add class to choice container to select all of it when displaying correctness
         selectedChoice.parentElement.classList.add(classToApply)
@@ -159,3 +171,13 @@ incrementScore = num => {
 }
 
 startGame();
+
+function writeTimer(){
+    --time;
+    document.querySelector("#time").innerHTML=time
+
+    if(time==0){
+        clearInterval(writeTimer);
+        return window.location.assign("end.html")
+    }
+}

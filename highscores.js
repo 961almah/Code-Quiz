@@ -1,6 +1,6 @@
-const highScoresList = document.getElementById("highScoresList")
+const highScoresList = document.getElementById("highScoresList");
 // get high scores from local storage, if it gets nothing add empty array
-const highScores = JSON.parse(localStorage.getItem("highScores")) || []
+const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
 
 highScoresList.innerHTML = highScores
